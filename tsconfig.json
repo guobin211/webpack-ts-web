@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "strictNullChecks": true,
+    "isolatedModules": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "paths": {
+      // 配置模块路径映射
+      "@/*": ["./shared/*"]
+    },
+    "lib": [
+      "DOM",
+      "ESNext",
+      "WebWorker"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    "target": "ES2019",
+    "module": "ESNext"
+  }
+}
