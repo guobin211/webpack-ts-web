@@ -15,5 +15,4 @@
  * @time 2021/3/9 12:53
  * @version
  */
-import 'babel-polyfill';
-import 'whatwg-fetch';
+export {}

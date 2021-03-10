@@ -16,12 +16,13 @@ const webpackCommon: Configuration = {
   cache: true,
   context: PROJECT_ROOT,
   entry: {
-    home: resolve(PROJECT_ROOT, 'pages', 'support-doc', 'index.tsx'),
-    polyfills: resolve(PROJECT_ROOT, 'pages', 'polyfills.ts')
+    'pages/support-doc': resolve(PROJECT_ROOT, 'src', 'support-doc', 'index.tsx'),
+    'pages/support-home': resolve(PROJECT_ROOT, 'src', 'support-home', 'index.ts'),
+    polyfill: resolve(PROJECT_ROOT, 'src', 'polyfill.ts')
   },
   output: {
     publicPath: '/',
-    path: resolve(PROJECT_ROOT, 'dist'),
+    path: resolve(PROJECT_ROOT, 'build'),
     clean: true,
     pathinfo: false,
   },

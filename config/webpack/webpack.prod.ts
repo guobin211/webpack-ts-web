@@ -6,8 +6,6 @@
  * @version
  */
 import merge from 'webpack-merge';
-import { PROJECT_ROOT } from '../@node-constants';
-import { resolve } from '../@node-help';
 import { Devtools } from './devtools';
 import { getPlugins } from './plugins';
 import { webpackCommon } from './webpack.common';
@@ -18,9 +16,8 @@ export const prodConfig = merge(webpackCommon, {
   devtool: Devtools.file,
   output: {
     publicPath: '/',
-    path: resolve(PROJECT_ROOT, 'dist'),
     clean: true,
-    filename: '[name]-[hash].js',
+    filename: '[name]-[contenthash].js',
     hashSalt: 'official-website-pc',
   },
   externals: {

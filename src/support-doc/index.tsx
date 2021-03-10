@@ -6,4 +6,7 @@
  * @version
  */
 import React from 'react';
-console.log('home');
+import ReactDOM from 'react-dom';
+import App from './app';
+
+ReactDOM.render(<App/>,  document.getElementById('app'));
