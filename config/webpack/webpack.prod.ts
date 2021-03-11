@@ -7,12 +7,11 @@
  */
 import merge from 'webpack-merge';
 import { Devtools } from './devtools';
-import { getPlugins } from './plugins';
 import { webpackCommon } from './webpack.common';
 
 export const prodConfig = merge(webpackCommon, {
   mode: 'production',
-  cache: false,
+  cache: true,
   devtool: Devtools.file,
   output: {
     publicPath: '/',
@@ -26,5 +25,4 @@ export const prodConfig = merge(webpackCommon, {
     'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM',
   },
-  plugins: getPlugins()
 });

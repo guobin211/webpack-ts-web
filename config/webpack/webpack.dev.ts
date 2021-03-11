@@ -6,12 +6,10 @@
  * @version
  */
 import merge from 'webpack-merge';
-import { getPlugins } from './plugins';
 import { webpackCommon } from './webpack.common';
 import { Devtools } from './devtools';
 
 export const devConfig = merge(webpackCommon, {
   mode: 'development',
   devtool: Devtools.inline,
-  plugins: getPlugins(),
 });

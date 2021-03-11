@@ -5,7 +5,7 @@
  * @time 2021/3/8 15:17
  * @version
  */
-export interface PageConfig {
+export interface Page {
   /**
    * 编译入口
    */

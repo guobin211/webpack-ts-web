@@ -6,5 +6,3 @@
  * @version
  */
 document.body.appendChild(document.createElement('div'));
-
-export {};

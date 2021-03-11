@@ -1,5 +1,5 @@
 /**
- * polyfills
+ * polyfill
  * official-website-pc
  *
  <script>
@@ -7,7 +7,7 @@
   if (!modernBrowser) {
     const scriptElement = document.createElement('script');
     scriptElement.async = false;
-    scriptElement.src = '/polyfills.bundle.js';
+    scriptElement.src = '/polyfill.bundle.js';
     document.head.appendChild(scriptElement);
   }
  </script>
@@ -15,4 +15,3 @@
  * @time 2021/3/9 12:53
  * @version
  */
-export {}

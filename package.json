@@ -39,7 +39,6 @@
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^8.0.0",
     "css-loader": "^5.1.1",
-    "csv-loader": "^3.0.3",
     "fork-ts-checker-webpack-plugin": "^6.1.1",
     "html-webpack-plugin": "^5.3.0",
     "json5": "^2.2.0",
@@ -57,13 +56,11 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-manifest-plugin": "^3.0.0",
     "webpack-merge": "^5.7.3",
-    "xml-loader": "^1.2.1",
     "yargs": "^16.2.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "whatwg-fetch": "^3.6.2"
+    "react-dom": "^17.0.1"
   }
 }

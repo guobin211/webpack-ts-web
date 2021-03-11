@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": "./",
-    "outDir": "./dist/",
+    "outDir": "./build/",
     "paths": {
       // 配置模块路径映射
       "@/*": ["./shared/*"]

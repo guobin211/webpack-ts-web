@@ -1,8 +1,11 @@
 import json5 from 'json5';
 import { Configuration } from 'webpack';
-import { resolve } from '../@node-help';
+import { getEntry, resolve } from '../@node-help';
 import { PROJECT_ROOT } from '../@node-constants';
 import { getCssLoader } from '../utils';
+import { getPlugins } from './plugins';
+
+const entryMap = getEntry();
 
 /**
  * webpack.common
@@ -11,20 +14,27 @@ import { getCssLoader } from '../utils';
  * @time 2021/3/8 15:13
  * @version
  */
-
 const webpackCommon: Configuration = {
   cache: true,
   context: PROJECT_ROOT,
-  entry: {
-    'pages/support-doc': resolve(PROJECT_ROOT, 'src', 'support-doc', 'index.tsx'),
-    'pages/support-home': resolve(PROJECT_ROOT, 'src', 'support-home', 'index.ts'),
-    polyfill: resolve(PROJECT_ROOT, 'src', 'polyfill.ts')
-  },
+  entry: entryMap,
   output: {
     publicPath: '/',
     path: resolve(PROJECT_ROOT, 'build'),
     clean: true,
     pathinfo: false,
+    assetModuleFilename: (pathInfo) => {
+      if (pathInfo.filename) {
+        const fileName = pathInfo.filename?.replace('src/', 'images/').replace('/assets', '');
+        if (fileName) {
+          const dotIndex = fileName?.lastIndexOf('.');
+          const b = fileName.slice(0, dotIndex);
+          const a = fileName.slice(dotIndex, fileName.length);
+          return `${b}-${pathInfo.contentHash}${a}`;
+        }
+      }
+      return '';
+    }
   },
   optimization: {
     moduleIds: 'deterministic',
@@ -50,16 +60,6 @@ const webpackCommon: Configuration = {
   module: {
     rules: [
       {
-        test: /\.(jsx?)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: { cacheDirectory: true },
-          },
-        ],
-      },
-      {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: [
@@ -68,6 +68,16 @@ const webpackCommon: Configuration = {
             options: {
               transpileOnly: true,
             },
+          },
+        ],
+      },
+      {
+        test: /\.(jsx?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: { cacheDirectory: true },
           },
         ],
       },
@@ -106,14 +116,6 @@ const webpackCommon: Configuration = {
         type: 'asset/resource',
       },
       {
-        test: /\.(csv|tsv)$/i,
-        use: ['csv-loader'],
-      },
-      {
-        test: /\.xml$/i,
-        use: ['xml-loader'],
-      },
-      {
         test: /\.json5$/i,
         type: 'json',
         parser: {
@@ -122,6 +124,7 @@ const webpackCommon: Configuration = {
       },
     ],
   },
+  plugins: getPlugins(entryMap)
 };
 
 export {

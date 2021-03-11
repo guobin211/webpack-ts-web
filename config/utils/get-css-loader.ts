@@ -10,7 +10,16 @@ import { __DEV__ } from '../@node-constants';
  */
 export function getCssLoader(importLoaders: number) {
   return [
-    __DEV__ ? 'style-loader' : MiniCssExtractLoader,
+    __DEV__ ? 'style-loader' : {
+      loader: MiniCssExtractLoader,
+      options: {
+        publicPath: (resourcePath: any, context: any) => {
+          console.log(resourcePath);
+          console.log(context);
+          return 'css/';
+        }
+      },
+    },
     {
       loader: 'css-loader',
       options: {
