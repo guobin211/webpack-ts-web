@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title><%= 标题 %></title>
+    <meta name="keywords" content="<%= 关键词 %>" />
+    <meta name="description" content="<%= 描述 %>" />
+    <meta name="apple-mobile-web-app-title" content="<%= 标题 %>" />
+    <%- include('../../__template__/scripts-head.ejs'); -%>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="layout-header"></div>
+      <div id="app"></div>
+      <div class="layout-footer"></div>
+    </div>
+    <%- include('../../__template__/scripts-react.ejs'); -%>
+  </body>
+</html>

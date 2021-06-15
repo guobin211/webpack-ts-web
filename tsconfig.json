@@ -1,0 +1,14 @@
+{
+  // es-lint 范围`packages`, `scripts`, `src`
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "isolatedModules": false,
+    "sourceMap": true,
+    "lib": ["DOM", "ESNext", "WebWorker"],
+    "target": "ES2019",
+    "module": "ESNext",
+    "rootDir": "./"
+  }
+}

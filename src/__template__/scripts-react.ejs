@@ -1,0 +1,7 @@
+<%- include('./scripts-body.ejs'); -%>
+<% if (!IS_DEV) { %>
+    <script src="/packages/meeting-library/build/react.min.js"></script>
+    <script src="/packages/meeting-library/build/react-dom.min.js"></script>
+    <script src="/packages/meeting-library/build/react-router-dom.min.js"></script>
+    <script src="/packages/meeting-library/build/react-redux.min.js"></script>
+<% } %>

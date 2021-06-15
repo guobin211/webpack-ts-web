@@ -1,0 +1,12 @@
+{
+  "packages": ["packages/*"],
+  "command": {
+    "publish": {
+      "skipGit": true
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "0.0.0",
+  "ignoreChanges": ["*.md"]
+}
